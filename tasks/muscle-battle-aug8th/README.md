@@ -1,4 +1,4 @@
 体能大比拼 8月8日
 ---
 
-![](./factor1.png)
+![](https://github.com/Dexter0ion/Thoughtwork-2017Summer/blob/master/tasks/muscle-battle-aug8th/factor1.PNG?raw=true)
