@@ -1,0 +1,20 @@
+{
+  "name": "muscle-battle-aug8th",
+  "version": "1.0.0",
+  "description": "将一个正整数分解质因数。例如：输入90,打印出90=2335",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "test": "node run-tests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tws-stack/js-online-quiz-template.git"
+  },
+  "devDependencies": {
+    "jasmine": "^2.6.0"
+  },
+  "author": "邵博超",
+  "license": "ISC"
+}
