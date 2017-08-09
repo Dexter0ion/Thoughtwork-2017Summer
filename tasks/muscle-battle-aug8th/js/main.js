@@ -1,4 +1,5 @@
-module.exports = function resolveInteger2QualityFactor(num) {
+function resolveInteger2QualityFactor(num) {
+    //分解质因数
     var result = '';
 
 
@@ -14,4 +15,29 @@ module.exports = function resolveInteger2QualityFactor(num) {
     }
     console.log(result);
     return result;
+}
+
+function findFibonacci(num) {
+    //查找fibonacci数
+    var f0 = 0;
+    var f1 = 1;
+    var f2;
+    var result;
+    if (num === 0) result = 0;
+    else if (num === 1) result = 1;
+    else {
+        for (var i = 2; i <= num; i++) {
+            f2 = f0 + f1;
+            f0 = f1;
+            f1 = f2;
+        }
+        result = f2;
+    }
+
+    return result;
+    console.log('Fibonacci [' + num + '] = ' + result);
+}
+module.exports = {
+    resolveInteger2QualityFactor: resolveInteger2QualityFactor,
+    findFibonacci: findFibonacci
 }
