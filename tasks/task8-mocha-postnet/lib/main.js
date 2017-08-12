@@ -10,7 +10,7 @@ function number2code(inputs) {
 
     var codeText = '';
     codeText = numberTypeAll(inputs);
-    console.log("input number:"+inputs+" code:"+codeText);
+    console.log("input number:" + inputs + " code:" + codeText);
     return codeText;
 
 }
@@ -59,8 +59,30 @@ function num2codeAddExtranum(num) {
 
 }
 
-function code2number(inputs)
-{
-    return '';
+function code2number(inputs) {
+    var inputs_str = inputs.split(' ');
+    var numText = '';
+    var codeInfo = loadAllCode();
+    for (i in inputs_str) {
+        if (codeInfo.some(x => x.code === inputs_str[i])) {
+            var x = codeInfo.find(x => x.code === inputs_str[i]);
+            numText += x.number;
+        }
+    }
+    if (numText.length === 10) {
+        var numTextOri = numText;
+        var numTextFront = numText;
+        var numTextBack = numText;
+        numText = '';
+        numText += numTextFront.slice(0, 5) + '-' + numTextBack.slice(5, -1);
+        console.log("input code:" + inputs + " number:" + numText);
+        return numText;
+    }
+    else {
+        numText = numText.slice(0,-1);
+        console.log("input code:" + inputs + " number:" + numText);
+        return numText;
+    }
 }
-module.exports = { main, number2code ,code2number};
+
+module.exports = { main, number2code, code2number };

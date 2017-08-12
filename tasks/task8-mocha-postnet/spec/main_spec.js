@@ -11,7 +11,7 @@ var postcode = require('../lib/postcode.js');
 
 var loadAllCode = postcode.loadAllCode;
 
-describe("测试描述", function(){
+describe("测试描述", function () {
     /*
     sinon.spy(console, 'log');
 
@@ -32,47 +32,63 @@ describe("测试描述", function(){
         expect(expect_string).to.equal(result);
     });
     */
-   it("test mocha",function(){
-    expect(4+5).to.equal(9);
-   }) 
+    it("test mocha", function () {
+        expect(4 + 5).to.equal(9);
+    })
 });
 
-describe("transfer number into postcode",function(){
-    it("input is not number return empty string",function(){
-        var input="testnotnum";
+describe("transfer number into postcode", function () {
+    it("input is not number return empty string", function () {
+        var input = "testnotnum";
         var result = main.number2code(input);
         expect('').to.equal(result);
     })
-    it("input simple number 5 digits number return a code string ",function(){
+    it("input simple number 5 digits number return a code string ", function () {
 
-        var input='12345';//sum equals 15 ,extra num is 5;
+        var input = '12345';//sum equals 15 ,extra num is 5;
         var result = main.number2code(input);
         var expect_string = '| :::|| ::|:| ::||: :|::| :|:|: :|:|: |'
         expect(expect_string).to.equal(result);
     })
 
-    it("input simple number 9 digits number return a code string ",function(){
+    it("input simple number 9 digits number return a code string ", function () {
 
-        var input='555551237';//sum equals 15 ,extra num is 5;
+        var input = '555551237';//sum equals 15 ,extra num is 5;
         var result = main.number2code(input);
         var expect_string = '| :|:|: :|:|: :|:|: :|:|: :|:|: :::|| ::|:| ::||: |:::| ::|:| |'
         expect(expect_string).to.equal(result);
     })
 
-        it("input simple number 10 digits number return a code string ",function(){
+    it("input simple number 10 digits number return a code string ", function () {
 
-        var input='55555-1237';//sum equals 15 ,extra num is 5;
+        var input = '55555-1237';//sum equals 15 ,extra num is 5;
         var result = main.number2code(input);
         var expect_string = '| :|:|: :|:|: :|:|: :|:|: :|:|: :::|| ::|:| ::||: |:::| ::|:| |'
         expect(expect_string).to.equal(result);
     })
 })
 
-describe("transfer postcode into number",function(){
-    it("inuput 5 digits postcode return a num string",function(){
+describe("transfer postcode into number", function () {
+    it("input is not postcode return empty string", function () {
+        var input = "testnotnum";
+        var result = main.number2code(input);
+        expect('').to.equal(result);
+    })
+    
+    it("inuput 5(+1) digits postcode return a num string", function () {
         var input = '| :::|| ::|:| ::||: :|::| :|:|: :|:|: |';
         var result = main.code2number(input);
         var expect_string = '12345';
         expect(expect_string).to.equal(result);
     })
+
+    it("inuput 9(+1) digits postcode return a num string", function () {
+        var input = '| :|:|: :|:|: :|:|: :|:|: :|:|: :::|| ::|:| ::||: |:::| ::|:| |';
+        var result = main.code2number(input);
+        var expect_string = '55555-1237';
+        expect(expect_string).to.equal(result);
+    })
+
+
+
 })
